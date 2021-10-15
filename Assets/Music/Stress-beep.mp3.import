@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Stress-beep.mp3-5e5fbedfd65f86b972e3148e93fc79aa.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Stress-beep.mp3"
+dest_files=[ "res://.import/Stress-beep.mp3-5e5fbedfd65f86b972e3148e93fc79aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

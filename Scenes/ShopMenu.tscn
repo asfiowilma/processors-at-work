@@ -1,0 +1,254 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Characters/coffee.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Characters/food.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fonts/default.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scripts/Price.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/ShopMenu.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Music/Purchase.wav" type="AudioStream" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.792157, 0.631373, 0.576471, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Assets/Fonts/Poppins-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.878431, 0.764706, 0.690196, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.572549, 0.227451, 0.227451, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.721569, 0.337255, 0.337255, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.607843, 0.219608, 0.219608, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.721569, 0.337255, 0.337255, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="ShopMenu" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.501961, 0.356863, 0.356863, 0.466667 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.0
+margin_top = -148.5
+margin_right = 218.0
+margin_bottom = 148.5
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopHeader" type="Label" parent="ShopPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -218.0
+margin_top = 8.58154
+margin_right = 218.0
+margin_bottom = 54.5815
+custom_fonts/font = SubResource( 3 )
+text = "Shop"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cash" type="Label" parent="ShopPanel"]
+margin_left = 26.0
+margin_top = 52.2554
+margin_right = 122.0
+margin_bottom = 75.2554
+custom_fonts/font = ExtResource( 4 )
+text = "Cash: 0 bits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="HSplitContainer" parent="ShopPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -68.2075
+margin_right = 192.0
+margin_bottom = 123.792
+custom_constants/separation = 0
+split_offset = 186
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="Panel" parent="ShopPanel/Control"]
+margin_right = 186.0
+margin_bottom = 191.999
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ShopPanel/Control/Food"]
+position = Vector2( 87.6485, 64 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BuyFood" parent="ShopPanel/Control/Food" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -53.3366
+margin_right = 75.0
+margin_bottom = -11.3366
+text = "Purchase (F)"
+
+[node name="Price" type="Label" parent="ShopPanel/Control/Food"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -79.1714
+margin_right = 25.0
+margin_bottom = -56.1714
+custom_fonts/font = ExtResource( 4 )
+text = "8 bits"
+align = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+price = 8
+
+[node name="Label" type="Label" parent="ShopPanel/Control/Food"]
+margin_left = 7.84301
+margin_top = 4.0
+margin_right = 50.843
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.792157, 0.631373, 0.576471, 1 )
+text = "Food"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coffee" type="Panel" parent="ShopPanel/Control"]
+margin_left = 194.0
+margin_right = 384.0
+margin_bottom = 191.999
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ShopPanel/Control/Coffee"]
+position = Vector2( 94.5984, 64 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+
+[node name="BuyCoffee" parent="ShopPanel/Control/Coffee" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -53.3366
+margin_right = 75.0
+margin_bottom = -11.3366
+text = "Purchase (C)"
+
+[node name="Price" type="Label" parent="ShopPanel/Control/Coffee"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -21.1225
+margin_top = -79.1714
+margin_right = 23.8775
+margin_bottom = -56.1714
+custom_fonts/font = ExtResource( 4 )
+text = "8 bits"
+align = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+price = 8
+
+[node name="Label" type="Label" parent="ShopPanel/Control/Coffee"]
+margin_left = 8.37273
+margin_top = 4.0
+margin_right = 67.3727
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.792157, 0.631373, 0.576471, 1 )
+text = "Coffee"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="."]
+margin_left = 434.053
+margin_top = 85.0815
+margin_right = 462.053
+margin_bottom = 111.082
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "esc"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Purchase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="pressed" from="ShopPanel/Control/Food/BuyFood" to="." method="_on_BuyFood_pressed"]
+[connection signal="pressed" from="ShopPanel/Control/Coffee/BuyCoffee" to="." method="_on_BuyCoffee_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

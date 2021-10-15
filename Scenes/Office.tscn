@@ -1,0 +1,222 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/ControlU.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tiles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Processor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Music/UI-confirm.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/Shop.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Fonts/default.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Office.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/ShopMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Slot0.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Characters/coffee.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Characters/food.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 295.51, 38.9041 )
+
+[node name="Office" type="CanvasLayer"]
+script = ExtResource( 9 )
+
+[node name="ControlU" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 400 )
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 259.337, 39.3235 )
+shape = SubResource( 1 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 288, 432 )
+z_index = -2
+z_as_relative = false
+tile_data = PoolIntArray( -393221, 0, 131072, -393220, 0, 131075, -393219, 0, 131075, -393218, 0, 131075, -393217, 0, 131075, -458752, 0, 131075, -458751, 0, 131075, -458750, 0, 131075, -458749, 0, 131075, -327685, 0, 131072, -327684, 0, 131076, -327683, 0, 131076, -327682, 0, 131076, -327681, 0, 131076, -393216, 0, 65539, -393215, 0, 65539, -393214, 0, 65539, -393213, 0, 1, -262149, 0, 131072, -262148, 0, 65538, -262147, 0, 131073, -262146, 0, 2, -262145, 0, 131073, -327680, 0, 3, -327679, 0, 131073, -327678, 0, 3, -327677, 0, 3, -196613, 0, 131072, -196612, 0, 131072, -196611, 0, 0, -196610, 0, 1, -196609, 0, 0, -262144, 0, 1, -262143, 0, 131072, -262142, 0, 4, -262141, 0, 1, -131077, 0, 131072, -131076, 0, 65538, -131075, 0, 65536, -131074, 0, 65537, -131073, 0, 65536, -196608, 0, 3, -196607, 0, 131072, -196606, 0, 65540, -196605, 0, 1, -65541, 0, 131072, -65540, 0, 131072, -65539, 0, 0, -65538, 0, 1, -65537, 0, 0, -131072, 0, 131074, -131071, 0, 131072, -131070, 0, 65540, -131069, 0, 1, -5, 0, 131072, -4, 0, 65538, -3, 0, 131075, -2, 0, 65539, -1, 0, 131075, -65536, 0, 3, -65535, 0, 131072, -65534, 0, 65540, -65533, 0, 1, 65531, 0, 131072, 65532, 0, 131073, 65533, 0, 131073, 65534, 0, 131073, 65535, 0, 131073, 0, 0, 131073, 1, 0, 131072, 2, 0, 65540, 3, 0, 1 )
+
+[node name="Ainun" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128, 336 )
+
+[node name="Nametag" type="Label" parent="Ainun"]
+margin_left = -13.2269
+margin_top = 22.4341
+margin_right = 31.7731
+margin_bottom = 45.4341
+custom_fonts/font = ExtResource( 7 )
+text = "Ainun"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Raden" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 336 )
+character = 2
+
+[node name="Nametag" type="Label" parent="Raden"]
+margin_left = -19.5674
+margin_top = 22.4341
+margin_right = 32.4326
+margin_bottom = 45.4341
+custom_fonts/font = ExtResource( 7 )
+text = "Raden"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anthony" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 208 )
+character = 3
+
+[node name="Nametag" type="Label" parent="Anthony"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.0101
+margin_top = 21.9492
+margin_right = 42.9899
+margin_bottom = 44.9492
+custom_fonts/font = ExtResource( 7 )
+text = "Anthony"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intan" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128, 208 )
+character = 1
+
+[node name="Nametag" type="Label" parent="Intan"]
+margin_left = -19.5674
+margin_top = 22.4341
+margin_right = 32.4326
+margin_bottom = 45.4341
+custom_fonts/font = ExtResource( 7 )
+text = "Intan"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" parent="." instance=ExtResource( 6 )]
+position = Vector2( 448, 80 )
+z_index = -1
+
+[node name="Nametag" type="Label" parent="Shop"]
+margin_left = -19.5674
+margin_top = 22.4341
+margin_right = 32.4326
+margin_bottom = 45.4341
+custom_fonts/font = ExtResource( 7 )
+text = "Shop"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Node2D" parent="."]
+
+[node name="Slot0" type="Position2D" parent="Inventory"]
+position = Vector2( 64, 80 )
+z_index = -1
+script = ExtResource( 11 )
+
+[node name="Slot1" type="Position2D" parent="Inventory"]
+position = Vector2( 128, 80 )
+z_index = -1
+script = ExtResource( 11 )
+
+[node name="Slot2" type="Position2D" parent="Inventory"]
+position = Vector2( 192, 80 )
+z_index = -1
+script = ExtResource( 11 )
+
+[node name="Slot3" type="Position2D" parent="Inventory"]
+position = Vector2( 256, 80 )
+z_index = -1
+script = ExtResource( 11 )
+
+[node name="food" type="Sprite" parent="Inventory/Slot3"]
+visible = false
+texture = ExtResource( 13 )
+
+[node name="coffee" type="Sprite" parent="Inventory/Slot3"]
+visible = false
+texture = ExtResource( 12 )
+
+[node name="ShopLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="ShopMenu" parent="ShopLayer" instance=ExtResource( 10 )]
+visible = false
+
+[node name="TopBar" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="TopBar"]
+margin_right = 544.0
+margin_bottom = 32.0
+color = Color( 0.482353, 0.286275, 0.286275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBtn" parent="TopBar/ColorRect" instance=ExtResource( 8 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 10.6077
+margin_top = -12.5
+margin_right = 121.608
+margin_bottom = 12.5
+text = "Menu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/ColorRect"]
+margin_left = 233.0
+margin_top = 1.0
+margin_right = 483.0
+margin_bottom = 33.0
+custom_constants/separation = 34
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
+margin_left = 46.0
+margin_top = 4.0
+margin_right = 115.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 7 )
+text = "Score: 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
+margin_left = 149.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 7 )
+text = "Cash: 0 bits"
+align = 2
+
+[node name="Transition" parent="." instance=ExtResource( 4 )]
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="grab_task" from="ControlU" to="." method="_on_ControlU_grab_task"]
+[connection signal="open_shop" from="ControlU" to="." method="_on_ControlU_open_shop"]
+[connection signal="buy_coffee" from="ShopLayer/ShopMenu" to="." method="_on_ShopMenu_buy_coffee"]
+[connection signal="buy_food" from="ShopLayer/ShopMenu" to="." method="_on_ShopMenu_buy_food"]
+[connection signal="close_shop" from="ShopLayer/ShopMenu" to="." method="_on_ShopMenu_close_shop"]
+[connection signal="pressed" from="TopBar/ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
+[connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="Ainun"]
+[editable path="Transition"]

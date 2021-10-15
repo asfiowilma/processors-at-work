@@ -1,0 +1,245 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/GUI/bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Characters/Characters.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/Poppins-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Fonts/Poppins-ExtraBold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Fonts/Poppins-SemiBold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Fonts/default.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Music/UI-confirm.wav" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 54
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.905882, 0.831373, 0.803922, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_offset = Vector2( 2, 2 )
+
+[sub_resource type="DynamicFont" id=5]
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Assets/Fonts/Poppins-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 12
+use_filter = true
+font_data = SubResource( 6 )
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -299.056
+margin_top = -225.0
+margin_right = 300.944
+margin_bottom = 225.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="." instance=ExtResource( 9 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 251.286, 178.079 )
+scale = Vector2( 1.08126, 1.08126 )
+texture = ExtResource( 3 )
+
+[node name="GameTitle" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.0891
+margin_top = -130.139
+margin_right = -25.0891
+margin_bottom = -130.139
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P" type="Label" parent="GameTitle"]
+margin_left = -159.257
+margin_top = -46.4914
+margin_right = -78.257
+margin_bottom = 133.509
+rect_rotation = -11.5879
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "P"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rocessors" type="Label" parent="GameTitle"]
+anchor_left = 0.036
+anchor_right = 0.036
+margin_left = -81.1869
+margin_top = -33.3373
+margin_right = 280.813
+margin_bottom = 57.6636
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "rocessors"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="At work" type="Label" parent="GameTitle"]
+margin_left = -95.3599
+margin_top = 28.4262
+margin_right = 126.64
+margin_bottom = 96.4262
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.576471, 0.411765, 0.364706, 1 )
+text = "at Work!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 310.0
+margin_top = 412.0
+margin_right = 459.0
+margin_bottom = 435.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.701961, 0.494118, 0.423529, 1 )
+text = "or Press Enter"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" parent="." instance=ExtResource( 1 )]
+margin_left = 309.469
+margin_top = 369.91
+margin_right = 460.469
+margin_bottom = 411.91
+text = "Play"
+
+[node name="CreditBtn" type="Button" parent="."]
+margin_left = 11.3979
+margin_top = 415.892
+margin_right = 86.3979
+margin_bottom = 444.892
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_disabled = Color( 0.490196, 0.376471, 0.337255, 1 )
+custom_colors/font_color = Color( 0.701961, 0.494118, 0.423529, 1 )
+custom_colors/font_color_hover = Color( 0.501961, 0.298039, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.501961, 0.298039, 0.227451, 1 )
+text = "credits"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.501961, 0.356863, 0.356863, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="Credits"]
+anchor_right = 0.902
+anchor_bottom = 0.777
+margin_left = 47.1667
+margin_top = 101.358
+margin_right = -0.833344
+margin_bottom = 6.70844
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsPanel" type="MarginContainer" parent="Credits/Popup"]
+margin_right = 400.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Credits/Popup/CreditsPanel"]
+margin_right = 400.0
+margin_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/panel = SubResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/Popup/CreditsPanel/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0158
+margin_top = 10.6787
+margin_right = -12.9842
+margin_bottom = -12.3213
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Credits[/b]
+
+Game design, characters, and sprites
+by Lyth[/center]
+
+[b]Music[/b]
+Local Forecast – Elevator by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+[b]Inspired by[/b]
+Miss Management by Gamelab"
+text = "Credits
+
+Game design, characters, and sprites
+by Lyth
+
+Music
+Local Forecast – Elevator by Kevin MacLeod | https://incompetech.com/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+Inspired by
+Miss Management by Gamelab"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="gui_input" from="PlayBtn" to="." method="_on_PlayBtn_gui_input"]
+[connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
+[connection signal="pressed" from="CreditBtn" to="." method="_on_CreditBtn_pressed"]
+[connection signal="popup_hide" from="Credits/Popup" to="." method="_on_Popup_popup_hide"]
+
+[editable path="Transition"]

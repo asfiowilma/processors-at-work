@@ -21,4 +21,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Transition.layer = -1
 		$Transition/ColorRect.hide()
 	else:
+		Globals.reset_game()
 		get_tree().change_scene("res://Scenes/MainMenu.tscn")

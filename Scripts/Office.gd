@@ -20,6 +20,7 @@ func _process(delta):
 
 
 func _on_MenuBtn_pressed():
+	Globals.reset_game()
 	$ConfirmSound.play()
 	$Transition.layer = 5
 	$Transition/ColorRect/AnimationPlayer.play_backwards("transition")

@@ -1,86 +1,32 @@
 extends Node2D
 
-var HUGETASK = preload("res://Scenes/Tasks/HugeTask.tscn")
-var SMOLTASK = preload("res://Scenes/Tasks/SmolTask.tscn")
-
 var tasks = []
 var isWon = false
 var t_start = true 
+
+onready var timerLabel = $Office/TopBar/ColorRect/HBoxContainer/TimerLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Transition.layer = 5
 	$Transition/ColorRect/AnimationPlayer.play("transition")
 	
-	var i = HUGETASK.instance()
-	i.color = i.COLOR.RED
-	Globals.tasks.append(i)
+	$Office/TopBar/ColorRect/HBoxContainer/LevelLabel.text = "Level 01"
+	
+	for task_code in Globals.level_1: 
+		tasks.append(Globals.generate_task(task_code))
+	
+	var task = tasks.pop_front()
+	Globals.tasks.append(task)
+	$Table.add_child(task)
 	reposition_tasks()
 	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.GREEN
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.GREEN
-	tasks.append(i)
-	
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.RED
-	tasks.append(i)	
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.GREEN
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.RED
-	tasks.append(i)
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.RED
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.GREEN
-	tasks.append(i)
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
-	i = HUGETASK.instance()
-	i.color = i.COLOR.RED
-	tasks.append(i)	
-	
-	i = SMOLTASK.instance()
-	i.color = i.COLOR.BLUE
-	tasks.append(i)
-	
 	$LevelTimer.wait_time = len(tasks) * 5 + 10
-	$LevelProgress.max_value = $LevelTimer.wait_time 
-	$LevelProgress.value = 0
+	timerLabel.text = str($LevelTimer.wait_time)
 	$LevelTimer.start()
 
 func _process(delta):
-	$LevelProgress.value = $LevelTimer.wait_time - $LevelTimer.time_left
+	timerLabel.text = str(int($LevelTimer.time_left))
 	check_win_condition()
 
 func reposition_tasks():

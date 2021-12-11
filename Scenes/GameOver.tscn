@@ -79,6 +79,7 @@ text = "Menu"
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -20.0
 autoplay = true
 
 [node name="ConfirmSound" type="AudioStreamPlayer" parent="."]

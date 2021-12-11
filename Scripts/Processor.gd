@@ -46,6 +46,8 @@ func update_state():
 		if !$StressSound.is_playing():
 			$StressSound.play()
 	else:
+		if $StressSound.is_playing():
+			$StressSound.stop()
 		state = STATE.idle
 
 func animate_sprite():
@@ -63,7 +65,7 @@ func consume_item(item):
 		heat -= 32
 		$HeatMeter.value = heat
 	elif item.type == ITEM.TYPE.COFFEE:
-		warmup = warmup/2
+		warmup = int(warmup/2)
 		sprite.frames.set_animation_speed("stressed", 4)
 		print("coffee boost starts")
 		$HeatTimer.wait_time = 0.6
@@ -140,7 +142,16 @@ func _on_TaskTimer_timeout():
 	print("Finished work")
 	
 	var done = todos[0].task
-	Globals.score += done.score_value + warmup + hugeTaskCost
+	var bonus = int((warmup*3 - cooldown*4)/3)
+	if done.size == done.SIZE.HUGE:
+		bonus += hugeTaskCost 
+	else:
+		bonus += smolTaskCost
+	
+	if $BoostTimer.time_left > 0:
+		bonus *= 2
+		
+	Globals.score += done.score_value + bonus
 	Globals.cash += done.cash_value
 	
 	$WorkDoneSound.play()	

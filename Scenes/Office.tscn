@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/ControlU.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tiles.tscn" type="PackedScene" id=2]
@@ -13,9 +13,12 @@
 [ext_resource path="res://Scripts/Slot0.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Characters/coffee.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Characters/food.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Objects/clock.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Objects/hud-bar.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/food-table.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 295.51, 38.9041 )
+extents = Vector2( 128, 32.3692 )
 
 [node name="Office" type="CanvasLayer"]
 script = ExtResource( 9 )
@@ -23,20 +26,8 @@ script = ExtResource( 9 )
 [node name="ControlU" parent="." instance=ExtResource( 1 )]
 position = Vector2( 384, 400 )
 
-[node name="RigidBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 259.337, 39.3235 )
-shape = SubResource( 1 )
-
-[node name="TileMap" parent="." instance=ExtResource( 2 )]
-position = Vector2( 288, 432 )
-z_index = -2
-z_as_relative = false
-tile_data = PoolIntArray( -393221, 0, 131072, -393220, 0, 131075, -393219, 0, 131075, -393218, 0, 131075, -393217, 0, 131075, -458752, 0, 131075, -458751, 0, 131075, -458750, 0, 131075, -458749, 0, 131075, -327685, 0, 131072, -327684, 0, 131076, -327683, 0, 131076, -327682, 0, 131076, -327681, 0, 131076, -393216, 0, 65539, -393215, 0, 65539, -393214, 0, 65539, -393213, 0, 1, -262149, 0, 131072, -262148, 0, 65538, -262147, 0, 131073, -262146, 0, 2, -262145, 0, 131073, -327680, 0, 3, -327679, 0, 131073, -327678, 0, 3, -327677, 0, 3, -196613, 0, 131072, -196612, 0, 131072, -196611, 0, 0, -196610, 0, 1, -196609, 0, 0, -262144, 0, 1, -262143, 0, 131072, -262142, 0, 4, -262141, 0, 1, -131077, 0, 131072, -131076, 0, 65538, -131075, 0, 65536, -131074, 0, 65537, -131073, 0, 65536, -196608, 0, 3, -196607, 0, 131072, -196606, 0, 65540, -196605, 0, 1, -65541, 0, 131072, -65540, 0, 131072, -65539, 0, 0, -65538, 0, 1, -65537, 0, 0, -131072, 0, 131074, -131071, 0, 131072, -131070, 0, 65540, -131069, 0, 1, -5, 0, 131072, -4, 0, 65538, -3, 0, 131075, -2, 0, 65539, -1, 0, 131075, -65536, 0, 3, -65535, 0, 131072, -65534, 0, 65540, -65533, 0, 1, 65531, 0, 131072, 65532, 0, 131073, 65533, 0, 131073, 65534, 0, 131073, 65535, 0, 131073, 0, 0, 131073, 1, 0, 131072, 2, 0, 65540, 3, 0, 1 )
-
 [node name="Ainun" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 336 )
+position = Vector2( 107.773, 340.12 )
 
 [node name="Nametag" type="Label" parent="Ainun"]
 margin_left = -13.2269
@@ -50,7 +41,7 @@ __meta__ = {
 }
 
 [node name="Raden" parent="." instance=ExtResource( 3 )]
-position = Vector2( 256, 336 )
+position = Vector2( 235.773, 340.12 )
 character = 2
 
 [node name="Nametag" type="Label" parent="Raden"]
@@ -66,7 +57,7 @@ __meta__ = {
 }
 
 [node name="Anthony" parent="." instance=ExtResource( 3 )]
-position = Vector2( 256, 208 )
+position = Vector2( 235.773, 212.12 )
 character = 3
 
 [node name="Nametag" type="Label" parent="Anthony"]
@@ -86,7 +77,7 @@ __meta__ = {
 }
 
 [node name="Intan" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 208 )
+position = Vector2( 107.773, 212.12 )
 character = 1
 
 [node name="Nametag" type="Label" parent="Intan"]
@@ -102,7 +93,7 @@ __meta__ = {
 }
 
 [node name="Shop" parent="." instance=ExtResource( 6 )]
-position = Vector2( 448, 80 )
+position = Vector2( 484.022, 92.3167 )
 z_index = -1
 
 [node name="Nametag" type="Label" parent="Shop"]
@@ -120,22 +111,22 @@ __meta__ = {
 [node name="Inventory" type="Node2D" parent="."]
 
 [node name="Slot0" type="Position2D" parent="Inventory"]
-position = Vector2( 64, 80 )
+position = Vector2( 224, 85.5 )
 z_index = -1
 script = ExtResource( 11 )
 
 [node name="Slot1" type="Position2D" parent="Inventory"]
-position = Vector2( 128, 80 )
+position = Vector2( 288, 85.5 )
 z_index = -1
 script = ExtResource( 11 )
 
 [node name="Slot2" type="Position2D" parent="Inventory"]
-position = Vector2( 192, 80 )
+position = Vector2( 352, 85.5 )
 z_index = -1
 script = ExtResource( 11 )
 
 [node name="Slot3" type="Position2D" parent="Inventory"]
-position = Vector2( 256, 80 )
+position = Vector2( 416, 85.5 )
 z_index = -1
 script = ExtResource( 11 )
 
@@ -147,6 +138,18 @@ texture = ExtResource( 13 )
 visible = false
 texture = ExtResource( 12 )
 
+[node name="RigidBody2D" type="StaticBody2D" parent="Inventory"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/RigidBody2D"]
+position = Vector2( 320.011, 92.3167 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Inventory/RigidBody2D"]
+position = Vector2( 320.011, 92.3167 )
+z_index = -2
+z_as_relative = false
+texture = ExtResource( 16 )
+
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 layer = 4
 
@@ -156,10 +159,13 @@ visible = false
 [node name="TopBar" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="ColorRect" type="ColorRect" parent="TopBar"]
-margin_right = 544.0
-margin_bottom = 32.0
-color = Color( 0.482353, 0.286275, 0.286275, 1 )
+[node name="ColorRect" type="TextureRect" parent="TopBar"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 524.0
+margin_bottom = 44.0
+texture = ExtResource( 15 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -167,48 +173,90 @@ __meta__ = {
 [node name="MenuBtn" parent="TopBar/ColorRect" instance=ExtResource( 8 )]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 10.6077
-margin_top = -12.5
-margin_right = 121.608
-margin_bottom = 12.5
+margin_left = 9.42045
+margin_top = -11.8978
+margin_right = 85.4204
+margin_bottom = 13.1022
 text = "Menu"
+flat = true
+clip_text = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopBar/ColorRect"]
-margin_left = 233.0
-margin_top = 1.0
-margin_right = 483.0
-margin_bottom = 33.0
-custom_constants/separation = 34
-alignment = 2
+anchor_left = 0.787
+anchor_top = 0.54
+anchor_right = 0.988
+anchor_bottom = 0.611
+margin_left = -282.944
+margin_top = -15.28
+margin_right = -10.856
+margin_bottom = 12.448
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 70, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "Level XX"
+percent_visible = -0.142857
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
+margin_left = 90.0
+margin_top = 3.0
+margin_right = 120.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 30, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "99"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
-margin_left = 46.0
-margin_top = 4.0
-margin_right = 115.0
-margin_bottom = 27.0
+margin_left = 140.0
+margin_top = 3.0
+margin_right = 235.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 95, 0 )
 custom_fonts/font = ExtResource( 7 )
 text = "Score: 0"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CashLabel" type="Label" parent="TopBar/ColorRect/HBoxContainer"]
-margin_left = 149.0
-margin_top = 4.0
-margin_right = 250.0
-margin_bottom = 27.0
+margin_left = 255.0
+margin_top = 3.0
+margin_right = 381.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 126, 0 )
 custom_fonts/font = ExtResource( 7 )
 text = "Cash: 0 bits"
-align = 2
+
+[node name="Sprite" type="Sprite" parent="TopBar/ColorRect/HBoxContainer"]
+position = Vector2( -3.157, 32 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+offset = Vector2( 31.4006, -5.90589 )
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
 
+[node name="ColorRect" parent="Transition" index="0"]
+visible = false
+
 [node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+layer = -2
 
 [connection signal="grab_task" from="ControlU" to="." method="_on_ControlU_grab_task"]
 [connection signal="open_shop" from="ControlU" to="." method="_on_ControlU_open_shop"]

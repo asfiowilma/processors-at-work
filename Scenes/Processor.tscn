@@ -12,19 +12,11 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.752941, 0.160784, 0.258824, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-anti_aliasing = false
+border_width_right = 8
+border_color = Color( 0.972549, 0.435294, 0.329412, 1 )
+border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.976471, 0.803922, 0.678431, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-anti_aliasing = false
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [node name="Processor" type="StaticBody2D" groups=[
 "processors",
@@ -38,13 +30,15 @@ scale = Vector2( 4, 4 )
 shape = SubResource( 1 )
 
 [node name="HeatMeter" type="ProgressBar" parent="."]
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 26.7194
-margin_top = 22.9822
-margin_right = 72.7194
-margin_bottom = 26.9822
-rect_rotation = -90.1261
+anchor_left = 32.0
+anchor_right = 32.0
+margin_left = -32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 96.0
+grow_horizontal = 0
+rect_rotation = -90.0
+rect_clip_content = true
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 step = 1.0
@@ -55,14 +49,14 @@ __meta__ = {
 }
 
 [node name="ToDo" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, 20 )
+position = Vector2( -48, 20 )
 
 [node name="ToDo2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, 0 )
+position = Vector2( -48, 0 )
 z_index = 1
 
 [node name="ToDo3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, -20 )
+position = Vector2( -48, -20 )
 z_index = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -81,12 +75,15 @@ one_shot = true
 
 [node name="StressSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -25.0
 
 [node name="ToastedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -10.0
 
 [node name="WorkDoneSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -10.0
 
 [connection signal="timeout" from="TaskTimer" to="." method="_on_TaskTimer_timeout"]
 [connection signal="timeout" from="HeatTimer" to="." method="_on_HeatTimer_timeout"]

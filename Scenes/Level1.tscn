@@ -49,5 +49,6 @@ autoplay = true
 [editable path="Table"]
 [editable path="Office"]
 [editable path="Office/Ainun"]
+[editable path="Office/Intan"]
 [editable path="Office/Transition"]
 [editable path="Transition"]

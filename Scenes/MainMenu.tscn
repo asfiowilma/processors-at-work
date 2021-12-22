@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/GUI/bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI/background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Characters/Characters.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/Poppins-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Fonts/Poppins-ExtraBold.ttf" type="DynamicFontData" id=5]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/Fonts/default.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Music/UI-confirm.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/GUI/logo.png" type="Texture" id=11]
+[ext_resource path="res://Assets/GUI/manuals.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -25,7 +27,7 @@ size = 24
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.905882, 0.831373, 0.803922, 1 )
+bg_color = Color( 0.862745, 0.772549, 0.647059, 1 )
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -44,18 +46,74 @@ size = 12
 use_filter = true
 font_data = SubResource( 6 )
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.572549, 0.227451, 0.227451, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.721569, 0.337255, 0.337255, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.607843, 0.219608, 0.219608, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.721569, 0.337255, 0.337255, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://Assets/Fonts/Poppins-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=14]
+use_filter = true
+font_data = SubResource( 13 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 14
+use_filter = true
+font_data = SubResource( 13 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://Assets/Fonts/Poppins-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+size = 13
+use_filter = true
+extra_spacing_bottom = -9
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 13
+use_filter = true
+extra_spacing_bottom = -9
+font_data = SubResource( 16 )
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -299.056
-margin_top = -225.0
-margin_right = 300.944
-margin_bottom = 225.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,19 +122,21 @@ __meta__ = {
 [node name="Transition" parent="." instance=ExtResource( 9 )]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 251.286, 178.079 )
-scale = Vector2( 1.08126, 1.08126 )
+position = Vector2( 212.876, 181.856 )
+scale = Vector2( 0.93362, 0.93362 )
 texture = ExtResource( 3 )
+centered = false
 
 [node name="GameTitle" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -25.0891
-margin_top = -130.139
-margin_right = -25.0891
-margin_bottom = -130.139
+margin_left = -55.1239
+margin_top = -346.089
+margin_right = -55.1239
+margin_bottom = -346.089
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,10 +181,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 310.0
-margin_top = 412.0
-margin_right = 459.0
-margin_bottom = 435.0
+margin_left = 41.2578
+margin_top = 286.06
+margin_right = 190.258
+margin_bottom = 309.06
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.701961, 0.494118, 0.423529, 1 )
 text = "or Press Enter"
@@ -134,11 +194,18 @@ __meta__ = {
 }
 
 [node name="PlayBtn" parent="." instance=ExtResource( 1 )]
-margin_left = 309.469
-margin_top = 369.91
-margin_right = 460.469
-margin_bottom = 411.91
+margin_left = 41.2578
+margin_top = 244.06
+margin_right = 192.258
+margin_bottom = 286.06
 text = "Play"
+
+[node name="ManualBtn" parent="." instance=ExtResource( 1 )]
+margin_left = 41.2578
+margin_top = 320.297
+margin_right = 192.258
+margin_bottom = 362.297
+text = "How to Play"
 
 [node name="CreditBtn" type="Button" parent="."]
 margin_left = 11.3979
@@ -168,26 +235,28 @@ __meta__ = {
 }
 
 [node name="Popup" type="Popup" parent="Credits"]
-anchor_right = 0.902
-anchor_bottom = 0.777
-margin_left = 47.1667
-margin_top = 101.358
-margin_right = -0.833344
-margin_bottom = 6.70844
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -148.5
+margin_right = 199.0
+margin_bottom = 148.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreditsPanel" type="MarginContainer" parent="Credits/Popup"]
-margin_right = 400.0
-margin_bottom = 250.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="Credits/Popup/CreditsPanel"]
-margin_right = 400.0
-margin_bottom = 250.0
+margin_right = 398.0
+margin_bottom = 297.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_styles/panel = SubResource( 4 )
@@ -233,13 +302,287 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Manuals" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Manuals"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.501961, 0.356863, 0.356863, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="Manuals"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -268.0
+margin_top = -202.0
+margin_right = 268.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsPanel" type="MarginContainer" parent="Manuals/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Manuals/Popup/CreditsPanel"]
+margin_right = 536.0
+margin_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/panel = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Manuals/Popup/CreditsPanel/Panel"]
+position = Vector2( -9.53674e-07, 15.5737 )
+scale = Vector2( 1.29157, 1.2292 )
+texture = ExtResource( 12 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CloseButton" type="Button" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 493.689
+margin_top = 15.5737
+margin_right = 521.689
+margin_bottom = 41.5742
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+text = "esc"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 143.279
+margin_top = 9.22405
+margin_right = 393.279
+margin_bottom = 45.2241
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Employee Manuals"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 169.426
+margin_top = 66.0
+margin_right = 305.426
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Move"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 368.167
+margin_top = 65.874
+margin_right = 506.167
+margin_bottom = 101.874
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Grab/Drop Items"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 7.84412
+margin_top = 148.073
+margin_right = 145.844
+margin_bottom = 184.073
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Assign Tasks"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = -4.16945
+margin_top = 316.262
+margin_right = 133.831
+margin_bottom = 352.262
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Item Shop"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 276.479
+margin_top = 317.597
+margin_right = 414.479
+margin_bottom = 353.597
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Heat Meter"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 271.14
+margin_top = 160.084
+margin_right = 409.14
+margin_bottom = 196.084
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0.258824, 0.215686, 0.203922, 1 )
+text = "Goal:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 321.414
+margin_top = 171.502
+margin_right = 485.414
+margin_bottom = 221.502
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Finish all task before time runs out!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 245.251
+margin_top = 132.247
+margin_right = 281.251
+margin_bottom = 182.247
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "or"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 23.7525
+margin_top = 162.0
+margin_right = 140.753
+margin_bottom = 212.0
+custom_fonts/font = SubResource( 18 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Processors will work on them"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 23.5051
+margin_top = 330.0
+margin_right = 253.505
+margin_bottom = 380.0
+rect_pivot_offset = Vector2( 40.7525, 22.1879 )
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Buy food and coffee using bits you earn from working!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 300.0
+margin_top = 330.0
+margin_right = 472.0
+margin_bottom = 380.0
+rect_pivot_offset = Vector2( 40.7525, 22.1879 )
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Overheated processors will explode!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label12" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 135.525
+margin_top = 236.356
+margin_right = 365.525
+margin_bottom = 286.356
+rect_pivot_offset = Vector2( 40.7525, 22.1879 )
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Lowers heat level"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="Manuals/Popup/CreditsPanel/Panel"]
+margin_left = 135.878
+margin_top = 273.832
+margin_right = 365.878
+margin_bottom = 323.832
+rect_pivot_offset = Vector2( 40.7525, 22.1879 )
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.321569, 1 )
+text = "Gives speed boost"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 270.531, 86.1787 )
+scale = Vector2( 0.703092, 0.703092 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="gui_input" from="PlayBtn" to="." method="_on_PlayBtn_gui_input"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
+[connection signal="gui_input" from="ManualBtn" to="." method="_on_PlayBtn_gui_input"]
+[connection signal="pressed" from="ManualBtn" to="." method="_on_ManualBtn_pressed"]
 [connection signal="pressed" from="CreditBtn" to="." method="_on_CreditBtn_pressed"]
 [connection signal="popup_hide" from="Credits/Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="popup_hide" from="Manuals/Popup" to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="Manuals/Popup/CreditsPanel/Panel/CloseButton" to="." method="_on_CloseButton_pressed"]
 
 [editable path="Transition"]

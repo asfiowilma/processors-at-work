@@ -50,18 +50,23 @@ func check_win_condition():
 	var processors = get_tree().get_nodes_in_group("processors")
 	var remaining_tasks = get_tree().get_nodes_in_group("tasks")
 	if processors.size() == 0:
+		Globals.game_over_message = 'Everyone exploded!'
 		$BufferTimer.start()
 		return
-	elif $LevelTimer.is_stopped() and len(Globals.tasks) > 0: 
+	elif $LevelTimer.is_stopped() \
+		and (len(Globals.tasks) > 0 or remaining_tasks.size() > 0):
+		Globals.game_over_message = 'You ran out of time!'
 		$BufferTimer.start()
 		return
-	elif len(tasks) == 0 and len(Globals.tasks) == 0 and remaining_tasks.size() == 0:
+	elif len(tasks) == 0 \
+		and len(Globals.tasks) == 0 \
+		and remaining_tasks.size() == 0:
 		isWon = true
 		for processor in processors:
 			processor.get_node("AnimatedSprite").frames.set_animation_loop("happy", true)
 			processor.get_node("AnimatedSprite").play("happy")
 		$BufferTimer.start()
-		return
+		return		
 
 func _on_TaskTimer_timeout():
 	if len(tasks) > 0:

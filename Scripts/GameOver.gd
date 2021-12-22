@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 var t_start = true
 
@@ -7,6 +7,7 @@ func _ready():
 	$Transition/ColorRect.color = Color8(84, 36, 55)
 	t_start = true
 	$Transition/ColorRect/AnimationPlayer.play("transition")
+	$GameOverMessage.text = Globals.game_over_message
 
 func _on_Button_pressed():
 	$ConfirmSound.play()

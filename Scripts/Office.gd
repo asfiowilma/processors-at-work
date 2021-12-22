@@ -18,7 +18,6 @@ func _process(delta):
 	scoreLabel.text = "Score: " + str(Globals.score)
 	cashLabel.text = "Cash: " + str(Globals.cash) + " bits"
 
-
 func _on_MenuBtn_pressed():
 	Globals.reset_game()
 	$ConfirmSound.play()

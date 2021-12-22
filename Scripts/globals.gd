@@ -3,6 +3,7 @@ extends Node
 var score = 0
 var cash = 0 
 var is_shop_open = false
+var game_over_message = ''
 
 var tasks = []
 var inventory = []
@@ -25,6 +26,8 @@ func reset_game():
 func generate_task(code):
 	var huge = HUGETASK.instance()
 	var smol = SMOLTASK.instance()
+	huge.global_position = Vector2(-4000, -4000)
+	smol.global_position = Vector2(-4000, -4000)
 	if code == 'hg':
 		huge.color = huge.COLOR.GREEN
 		return huge

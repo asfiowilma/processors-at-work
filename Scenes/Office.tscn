@@ -24,7 +24,7 @@ extents = Vector2( 128, 32.3692 )
 script = ExtResource( 9 )
 
 [node name="ControlU" parent="." instance=ExtResource( 1 )]
-position = Vector2( 384, 400 )
+position = Vector2( 352, 268.62 )
 
 [node name="Ainun" parent="." instance=ExtResource( 3 )]
 position = Vector2( 107.773, 340.12 )
@@ -80,7 +80,11 @@ __meta__ = {
 position = Vector2( 107.773, 212.12 )
 character = 1
 
+[node name="HeatMeter" parent="Intan" index="1"]
+value = 20.0
+
 [node name="Nametag" type="Label" parent="Intan"]
+visible = false
 margin_left = -19.5674
 margin_top = 22.4341
 margin_right = 32.4326
@@ -202,7 +206,6 @@ margin_bottom = 26.0
 rect_min_size = Vector2( 70, 0 )
 custom_fonts/font = ExtResource( 7 )
 text = "Level XX"
-percent_visible = -0.142857
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -267,4 +270,5 @@ layer = -2
 [connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Ainun"]
+[editable path="Intan"]
 [editable path="Transition"]

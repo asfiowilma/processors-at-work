@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 
 # Declare member variables here. Examples:

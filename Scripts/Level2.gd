@@ -17,9 +17,9 @@ func _ready():
 	$Transition.layer = 5
 	$Transition/ColorRect/AnimationPlayer.play("transition")
 	
-	$Office/TopBar/ColorRect/HBoxContainer/LevelLabel.text = "Level 01"
+	$Office/TopBar/ColorRect/HBoxContainer/LevelLabel.text = "Level 02"
 	
-	for task_code in Globals.level_1: 
+	for task_code in Globals.level_2: 
 		tasks.append(Globals.generate_task(task_code))
 	
 	var task = tasks.pop_front()
@@ -42,7 +42,6 @@ func _process(delta):
 			$TaskTimer.set_paused(false)
 		timerLabel.text = str(int($LevelTimer.time_left))
 		check_win_condition()
-	
 	if Input.is_action_just_pressed("pause"):
 		if state == STATE.pause:
 			state = STATE.play
@@ -52,7 +51,7 @@ func _process(delta):
 			state = STATE.pause
 			$PauseScreen/Popup.popup()
 			$PauseScreen/ColorRect.visible = true
-	
+
 func reposition_tasks():
 	if len(Globals.tasks) > 0 and is_instance_valid(Globals.tasks[0]):
 		$Table/task0.add_child(Globals.tasks[0])
@@ -119,7 +118,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$Transition/ColorRect.hide()
 	else:
 		if isWon:
-			Globals.next_level_scene = "res://Scenes/Level2.tscn"
+			Globals.next_level_scene = null
 			get_tree().change_scene("res://Scenes/Win.tscn")
 		else:
 			get_tree().change_scene("res://Scenes/GameOver.tscn")

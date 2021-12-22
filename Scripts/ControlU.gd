@@ -45,6 +45,7 @@ func get_input():
 							var todo = body.todos[i]
 							if todo != null and todo.task == null and not todo.isOnProgress:
 								carry.global_position = todo.global_position
+								carry.z_index = todo.z_index
 								todo.task = carry
 								carry = null 
 								break

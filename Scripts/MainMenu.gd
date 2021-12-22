@@ -36,3 +36,11 @@ func _on_CreditBtn_pressed():
 
 func _on_Popup_popup_hide():
 	$Credits/ColorRect.visible = false
+	$Manuals/ColorRect.visible = false
+
+func _on_ManualBtn_pressed():
+	$Manuals/Popup.popup()
+	$Manuals/ColorRect.visible = true
+
+func _on_CloseButton_pressed():
+	$Manuals/Popup.hide()

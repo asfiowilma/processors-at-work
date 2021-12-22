@@ -3,6 +3,8 @@ extends Node
 var score = 0
 var cash = 0 
 var is_shop_open = false
+var game_over_message = ''
+var next_level_scene = null
 
 var tasks = []
 var inventory = []
@@ -13,6 +15,7 @@ var SMOLTASK = preload("res://Scenes/Tasks/SmolTask.tscn")
 
 # LEVELS 
 var level_1 = ['sr', 'sb', 'sr', 'sg', 'hr']
+var level_2 = ['sg', 'hb', 'sr', 'hg', 'hr', 'sg', 'hg']
 
 func reset_game(): 
 	score = 0
@@ -25,6 +28,8 @@ func reset_game():
 func generate_task(code):
 	var huge = HUGETASK.instance()
 	var smol = SMOLTASK.instance()
+	huge.global_position = Vector2(-4000, -4000)
+	smol.global_position = Vector2(-4000, -4000)
 	if code == 'hg':
 		huge.color = huge.COLOR.GREEN
 		return huge

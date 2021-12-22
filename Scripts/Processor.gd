@@ -80,8 +80,10 @@ func poll_todos():
 	var done = todos[0]
 	done.isOnProgress = false
 	if todos[2].task != null and todos[1].task != null:
+		todos[2].task.z_index = 1
 		todos[2].task.global_position = todos[1].task.global_position
 	if todos[1].task != null:
+		todos[1].task.z_index = 2
 		todos[1].task.global_position = done.task.global_position
 	done.task.queue_free()
 

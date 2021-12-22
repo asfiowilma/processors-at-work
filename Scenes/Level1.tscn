@@ -15,6 +15,9 @@ position = Vector2( 484.828, 304.259 )
 [node name="Office" parent="." instance=ExtResource( 1 )]
 layer = -1
 
+[node name="Nametag" parent="Office/Intan" index="12"]
+visible = true
+
 [node name="TaskTimer" type="Timer" parent="."]
 wait_time = 4.5
 autostart = true

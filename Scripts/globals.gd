@@ -13,7 +13,7 @@ var HUGETASK = preload("res://Scenes/Tasks/HugeTask.tscn")
 var SMOLTASK = preload("res://Scenes/Tasks/SmolTask.tscn")
 
 # LEVELS 
-var level_1 = ['sr', 'sb', 'sr', 'sg', 'hr']
+var level_1 = ['sr', 'sb', 'hr', 'sg', 'hr']
 
 func reset_game(): 
 	score = 0

@@ -1,8 +1,14 @@
 extends Node2D
 
+enum STATE {
+	play,
+	pause
+}
+
 var tasks = []
 var isWon = false
 var t_start = true 
+var state = STATE.play
 
 onready var timerLabel = $Office/TopBar/ColorRect/HBoxContainer/TimerLabel
 
@@ -26,8 +32,25 @@ func _ready():
 	$LevelTimer.start()
 
 func _process(delta):
-	timerLabel.text = str(int($LevelTimer.time_left))
-	check_win_condition()
+	if state == STATE.pause:
+		$LevelTimer.set_paused(true)
+		$TaskTimer.set_paused(true)
+	else:
+		if $LevelTimer.is_paused():
+			$LevelTimer.set_paused(false)
+		if $TaskTimer.is_paused():
+			$TaskTimer.set_paused(false)
+		timerLabel.text = str(int($LevelTimer.time_left))
+		check_win_condition()
+	if Input.is_action_just_pressed("pause"):
+		if state == STATE.pause:
+			state = STATE.play
+			$PauseScreen/Popup.hide()
+			$PauseScreen/ColorRect.visible = false
+		else:
+			state = STATE.pause
+			$PauseScreen/Popup.popup()
+			$PauseScreen/ColorRect.visible = true
 
 func reposition_tasks():
 	if len(Globals.tasks) > 0 and is_instance_valid(Globals.tasks[0]):

@@ -4,6 +4,7 @@ var score = 0
 var cash = 0 
 var is_shop_open = false
 var game_over_message = ''
+var next_level_scene = null
 
 var tasks = []
 var inventory = []
@@ -13,7 +14,8 @@ var HUGETASK = preload("res://Scenes/Tasks/HugeTask.tscn")
 var SMOLTASK = preload("res://Scenes/Tasks/SmolTask.tscn")
 
 # LEVELS 
-var level_1 = ['sr', 'sb', 'hr', 'sg', 'hr']
+var level_1 = ['sr', 'sb', 'sr', 'sg', 'hr']
+var level_2 = ['sg', 'hb', 'sr', 'hg', 'hr', 'sg', 'hg']
 
 func reset_game(): 
 	score = 0
